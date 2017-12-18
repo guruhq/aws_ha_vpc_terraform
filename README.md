@@ -6,7 +6,7 @@ A Terraform module that creates a HA two teired VPC in AWS. Both the public and 
 
 ```hcl
 module "aws_ha_vpc" {
-  source = "github.com/kgirthofer/aws_ha_vpc_terraform?ref=0.1.22"
+  source = "github.com/kgirthofer/aws_ha_vpc_terraform?ref=0.1.4"
   
   region   = "us-east-1"
   vpc_name = "test"
