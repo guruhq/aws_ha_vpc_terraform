@@ -13,7 +13,7 @@ resource "aws_route_table" "public" {
 resource "aws_route" "public_igw" {
   route_table_id            = "${aws_route_table.public.id}"
   destination_cidr_block    = "0.0.0.0/0"
-  gateway_id                = "${aws_internet_gateway.main.id}"
+  gateway_id            = "${aws_internet_gateway.main.id}"
   depends_on                = ["aws_route_table.public"]
 }
 
@@ -39,7 +39,7 @@ resource "aws_route_table" "private_a" {
 resource "aws_route" "private_igw_a" {
   route_table_id            = "${aws_route_table.private_a.id}"
   destination_cidr_block    = "0.0.0.0/0"
-  gateway_id                = "${aws_nat_gateway.private_gw_a.id}"
+  nat_gateway_id            ="${aws_nat_gateway.private_gw_a.id}"
   depends_on                = ["aws_route_table.private_a"]
 }
 
@@ -61,7 +61,7 @@ resource "aws_route_table" "private_b" {
 resource "aws_route" "private_igw_b" {
   route_table_id            = "${aws_route_table.private_b.id}"
   destination_cidr_block    = "0.0.0.0/0"
-  gateway_id                = "${aws_nat_gateway.private_gw_b.id}"
+  nat_gateway_id            = "${aws_nat_gateway.private_gw_b.id}"
   depends_on                = ["aws_route_table.private_b"]
 }
 
@@ -83,7 +83,7 @@ resource "aws_route_table" "private_c" {
 resource "aws_route" "private_igw_c" {
   route_table_id            = "${aws_route_table.private_c.id}"
   destination_cidr_block    = "0.0.0.0/0"
-  gateway_id                = "${aws_nat_gateway.private_gw_c.id}"
+  nat_gateway_id            = "${aws_nat_gateway.private_gw_c.id}"
   depends_on                = ["aws_route_table.private_c"]
 }
 
