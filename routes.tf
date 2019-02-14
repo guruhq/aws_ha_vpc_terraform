@@ -88,7 +88,7 @@ resource "aws_route" "private_igw_c" {
 }
 
 resource "aws_route" "vpn_gw_private_c" {
-  route_table_id            = "{aws_route_table.private_c.id}"
+  route_table_id            = "${aws_route_table.private_c.id}"
   destination_cidr_block    = "${var.vpn_internal_cidr}"
   gateway_id                = "${aws_vpn_gateway.vpn_gw.id}"
   depends_on                = ["aws_route_table.private_c"]
