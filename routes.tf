@@ -18,7 +18,7 @@ resource "aws_route" "public_igw" {
 }
 
 resource "aws_route" "vpn_gw_public" {
-  route_table_id            = "rtb-4fbb3ac4"
+  route_table_id            = "${aws_route_table.public.id}"
   destination_cidr_block    = "${var.vpn_internal_cidr}"
   gateway_id                = "${aws_vpn_gateway.vpn_gw.id}"
   depends_on                = ["aws_route_table.public"]
