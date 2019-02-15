@@ -16,6 +16,14 @@ variable "vpc_name" {
   default = "test_name"
 }
 
+variable "enable_dns_hostnames" {
+  default = "false"
+}
+
+variable "enable_dns_support" {
+  default = "true"
+}
+
 variable "public_subnet_a_cidr" {
   default = "10.0.1.0/24"
 }
