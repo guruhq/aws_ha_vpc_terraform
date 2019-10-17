@@ -5,7 +5,7 @@
 resource "aws_route_table" "public" {
   vpc_id = "${aws_vpc.main.id}"
   
-  tags {
+  tags = {
     Name = "Public Route"
   }
 }
@@ -31,7 +31,7 @@ resource "aws_route" "vpn_gw_public" {
 resource "aws_route_table" "private_a" {
   vpc_id = "${aws_vpc.main.id}"
 
-  tags {  
+  tags = {  
     Name = "Private Route AZ A"
   }
 }
@@ -53,7 +53,7 @@ resource "aws_route" "vpn_gw_private_a" {
 resource "aws_route_table" "private_b" {
   vpc_id = "${aws_vpc.main.id}"
 
-  tags {  
+  tags = {  
     Name = "Private Route AZ B"
   }
 }
@@ -75,7 +75,7 @@ resource "aws_route" "vpn_gw_private_b" {
 resource "aws_route_table" "private_c" {
   vpc_id = "${aws_vpc.main.id}"
 
-  tags {  
+  tags = {  
     Name = "Private Route AZ C"
   }
 }
