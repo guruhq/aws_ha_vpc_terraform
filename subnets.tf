@@ -8,6 +8,7 @@ resource "aws_subnet" "public_a" {
   availability_zone = "${var.region}a"
   tags = {
     Name = "${var.vpc_name}-public-a"
+    Tier = "Public"
   }
 }
 
@@ -17,6 +18,7 @@ resource "aws_subnet" "public_b" {
   availability_zone = "${var.region}b"
   tags = {
     Name = "${var.vpc_name}-public-b"
+    Tier = "Public"
   }
 }
 
@@ -26,6 +28,7 @@ resource "aws_subnet" "public_c" {
   availability_zone = "${var.region}c"
   tags = {
     Name = "${var.vpc_name}-public-c"
+    Tier = "Public"
   }
 }
 
@@ -39,6 +42,7 @@ resource "aws_subnet" "private_a" {
   availability_zone = "${var.region}a"
   tags = {
     Name = "${var.vpc_name}-private-a"
+    Tier = "Private"
   }
 }
 
@@ -48,6 +52,7 @@ resource "aws_subnet" "private_b" {
   availability_zone = "${var.region}b"
   tags = {
     Name = "${var.vpc_name}-private-b"
+    Tier = "Private"
   }
 }
 
@@ -57,5 +62,6 @@ resource "aws_subnet" "private_c" {
   availability_zone = "${var.region}c"
   tags = {
     Name = "${var.vpc_name}-private-c"
+    Tier = "Private"
   }
 }
