@@ -8,7 +8,6 @@ A Terraform module that creates a HA two teired VPC in AWS. Both the public and 
 module "aws_ha_vpc" {
   source = "github.com/kgirthofer/aws_ha_vpc_terraform?ref=0.1.4"
   
-  region   = "us-east-1"
   vpc_name = "test"
   vpc_cidr = "10.0.0.0/16"
   vpn_internal_cidr = "10.100.0.0/20"
@@ -25,7 +24,6 @@ module "aws_ha_vpc" {
 
 ## Vairiables
 
-- `region` - the region to launch the VPC into. (default `us-east-1`)
 - `vpc_cidr` - the cidr notated ip space of the vpc.
 - `vpc_name` - the name of the vpc. 
 - `vpn_internal_cidr` - the local network CIDR for VPN use.
