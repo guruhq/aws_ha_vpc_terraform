@@ -1,11 +1,3 @@
-variable "region" {
-  default = "us-east-1"
-}
-
-variable "profile" {
-  default = "default"
-}
-
 variable "vpn_internal_cidr" {
 }
 variable "vpc_cidr" {
