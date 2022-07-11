@@ -10,8 +10,6 @@ module "aws_ha_vpc" {
   
   vpc_name = "test"
   vpc_cidr = "10.0.0.0/16"
-  vpn_internal_cidr = "10.100.0.0/20"
-
   
   public_subnet_a_cidr  = "10.0.10.0/24"
   public_subnet_b_cidr  = "10.0.11.0/24"
@@ -26,7 +24,6 @@ module "aws_ha_vpc" {
 
 - `vpc_cidr` - the cidr notated ip space of the vpc.
 - `vpc_name` - the name of the vpc. 
-- `vpn_internal_cidr` - the local network CIDR for VPN use.
 - `public_subnet_a_cidr` - cidr for public subnet a
 - `public_subnet_b_cidr` - cidr for public subnet b
 - `public_subnet_c_cidr` - cidr for public subnet c
