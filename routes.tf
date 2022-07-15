@@ -17,13 +17,6 @@ resource "aws_route" "public_igw" {
   depends_on                = ["aws_route_table.public"]
 }
 
-resource "aws_route" "vpn_gw_public" {
-  route_table_id            = "${aws_route_table.public.id}"
-  destination_cidr_block    = "${var.vpn_internal_cidr}"
-  gateway_id                = "${aws_vpn_gateway.vpn_gw.id}"
-  depends_on                = ["aws_route_table.public"]
-}
-
 /* 
   Private Routes 
 */
@@ -43,13 +36,6 @@ resource "aws_route" "private_igw_a" {
   depends_on                = ["aws_route_table.private_a"]
 }
 
-resource "aws_route" "vpn_gw_private_a" {
-  route_table_id            = "${aws_route_table.private_a.id}"
-  destination_cidr_block    = "${var.vpn_internal_cidr}"
-  gateway_id                = "${aws_vpn_gateway.vpn_gw.id}"
-  depends_on                = ["aws_route_table.private_a"]
-}
-
 resource "aws_route_table" "private_b" {
   vpc_id = "${aws_vpc.main.id}"
 
@@ -65,13 +51,6 @@ resource "aws_route" "private_igw_b" {
   depends_on                = ["aws_route_table.private_b"]
 }
 
-resource "aws_route" "vpn_gw_private_b" {
-  route_table_id            = "${aws_route_table.private_b.id}"
-  destination_cidr_block    = "${var.vpn_internal_cidr}"
-  gateway_id                = "${aws_vpn_gateway.vpn_gw.id}"
-  depends_on                = ["aws_route_table.private_b"]
-}
-
 resource "aws_route_table" "private_c" {
   vpc_id = "${aws_vpc.main.id}"
 
@@ -84,12 +63,5 @@ resource "aws_route" "private_igw_c" {
   route_table_id            = "${aws_route_table.private_c.id}"
   destination_cidr_block    = "0.0.0.0/0"
   nat_gateway_id            = "${aws_nat_gateway.private_gw_c.id}"
-  depends_on                = ["aws_route_table.private_c"]
-}
-
-resource "aws_route" "vpn_gw_private_c" {
-  route_table_id            = "${aws_route_table.private_c.id}"
-  destination_cidr_block    = "${var.vpn_internal_cidr}"
-  gateway_id                = "${aws_vpn_gateway.vpn_gw.id}"
   depends_on                = ["aws_route_table.private_c"]
 }
