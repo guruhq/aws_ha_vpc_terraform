@@ -35,3 +35,10 @@ variable "private_subnet_b_cidr" {
 variable "private_subnet_c_cidr" {
   default = "10.0.6.0/24"
 }
+
+variable "private_subnet_tags" {
+  default = {}
+}
+variable "public_subnet_tags" {
+  default = {}
+}
