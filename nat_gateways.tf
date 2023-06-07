@@ -1,26 +1,10 @@
-resource "aws_eip" "private_gw_a" {
-  vpc = true
+resource "aws_eip" "private_gw" {
+  count = length(var.private_cidrs)
+  vpc   = true
 }
 
-resource "aws_eip" "private_gw_b" {
-  vpc = true
-}
-
-resource "aws_eip" "private_gw_c" {
-  vpc = true
-}
-
-resource "aws_nat_gateway" "private_gw_a" {
-  allocation_id = aws_eip.private_gw_a.id
-  subnet_id     = aws_subnet.public_a.id
-}
-
-resource "aws_nat_gateway" "private_gw_b" {
-  allocation_id = aws_eip.private_gw_b.id
-  subnet_id     = aws_subnet.public_b.id
-}
-
-resource "aws_nat_gateway" "private_gw_c" {
-  allocation_id = aws_eip.private_gw_c.id
-  subnet_id     = aws_subnet.public_c.id
+resource "aws_nat_gateway" "private_gw" {
+  count         = length(var.private_cidrs)
+  allocation_id = aws_eip.private_gw[count.index].id
+  subnet_id     = aws_subnet.public[count.index].id
 }
