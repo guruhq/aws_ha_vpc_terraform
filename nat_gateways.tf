@@ -1,6 +1,5 @@
 resource "aws_eip" "private_gw" {
   count = length(var.private_cidrs)
-  vpc   = true
 }
 
 resource "aws_nat_gateway" "private_gw" {
